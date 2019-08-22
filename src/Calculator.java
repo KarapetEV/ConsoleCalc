@@ -45,7 +45,7 @@ public class Calculator {
         } catch (Exception e) {
             if (nums.containsValue(line[0]) && nums.containsValue(line[2]) && line[1].length() == 1) {
                 RomanOperation romanOperation = new RomanOperation();
-                romanOperation.exec(line[0], line[1].charAt(0), line[0]);
+                romanOperation.exec(line[0], line[1].charAt(0), line[2]);
             } else {
                 throw new InputException("Неверный ввод!");
             }
