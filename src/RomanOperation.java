@@ -33,9 +33,41 @@ public class RomanOperation {
             default:
                 throw new InputException("Неверный ввод арифметического знака!");
         }
-        for (Map.Entry<Integer,String> el: Calculator.nums.entrySet()) {
-            if (el.getKey() == result)
-                System.out.println(el.getValue());
+
+        System.out.println(arabToRoman(result));
+    }
+
+    public String arabToRoman(int x) {
+        String num = "";
+
+        while (x >= 50) {
+            num += "L";
+            x -= 50;
         }
+        while (x >= 40) {
+            num += "XL";
+            x -= 40;
+        }
+        while (x >= 10) {
+            num += "X";
+            x -= 10;
+        }
+        while (x >= 9) {
+            num += "IX";
+            x -= 9;
+        }
+        while (x >= 5) {
+            num += "V";
+            x -= 5;
+        }
+        while (x >= 4) {
+            num += "IV";
+            x -= 4;
+        }
+        while (x >= 1) {
+            num += "I";
+            x -= 1;
+        }
+        return num;
     }
 }
