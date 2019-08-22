@@ -32,22 +32,26 @@ public class Calculator {
     }
 
     public static void run(String[] line) throws InputException {
-        try {
-            int x = Integer.parseInt(line[0]);
-            int y = Integer.parseInt(line[2]);
+        if (line[1].length() != 1) {
+            throw new InputException("Неверный ввод арифметического знака!");
+        } else {
+            try {
+                int x = Integer.parseInt(line[0]);
+                int y = Integer.parseInt(line[2]);
 
-            if (nums.containsKey(x) && nums.containsKey(y) && line[1].length() == 1) {
-                ArabicOperation arabicOperation = new ArabicOperation();
-                arabicOperation.exec(x, line[1].charAt(0), y);
-            } else {
-                throw new InputException("Неверный ввод!");
-            }
-        } catch (Exception e) {
-            if (nums.containsValue(line[0]) && nums.containsValue(line[2]) && line[1].length() == 1) {
-                RomanOperation romanOperation = new RomanOperation();
-                romanOperation.exec(line[0], line[1].charAt(0), line[2]);
-            } else {
-                throw new InputException("Неверный ввод!");
+                if (nums.containsKey(x) && nums.containsKey(y)) {
+                    ArabicOperation arabicOperation = new ArabicOperation();
+                    arabicOperation.exec(x, line[1].charAt(0), y);
+                } else {
+                    throw new InputException("Неверный ввод чисел!");
+                }
+            } catch (Exception e) {
+                if (nums.containsValue(line[0]) && nums.containsValue(line[2])) {
+                    RomanOperation romanOperation = new RomanOperation();
+                    romanOperation.exec(line[0], line[1].charAt(0), line[2]);
+                } else {
+                    throw new InputException("Неверный ввод чисел!");
+                }
             }
         }
     }

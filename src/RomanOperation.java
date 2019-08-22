@@ -24,14 +24,14 @@ public class RomanOperation {
                 result = x * y;
                 break;
             case '/':
-                if (y == 0) {
-                    throw new ArithmeticException("Ошибка! Деление на ноль!");
-                } else {
+                try {
                     result = x / y;
                     break;
+                } catch (ArithmeticException e) {
+                    throw new ArithmeticException("Ошибка! Деление на ноль!");
                 }
             default:
-                throw new InputException("Неверный ввод!");
+                throw new InputException("Неверный ввод арифметического знака!");
         }
         for (Map.Entry<Integer,String> el: Calculator.nums.entrySet()) {
             if (el.getKey() == result)
