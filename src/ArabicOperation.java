@@ -1,7 +1,7 @@
 public class ArabicOperation {
 
 
-    public void exec(int x, char sym, int y) throws ArithmeticException, InputException {
+    public static void exec(int x, char sym, int y) throws ArithmeticException, InputException {
 
         int result = 0;
         switch (sym) {

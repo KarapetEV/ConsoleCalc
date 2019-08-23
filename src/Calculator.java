@@ -43,8 +43,7 @@ public class Calculator {
                 //проверка на принадлежность к заданному диапазону арабских чисел (от 0 до 9)
                 if (nums.containsKey(x) && nums.containsKey(y)) {
                     //создание экземпляра класса операций с арабскими цифрами и выполнение операции
-                    ArabicOperation arabicOperation = new ArabicOperation();
-                    arabicOperation.exec(x, line[1].charAt(0), y);
+                    ArabicOperation.exec(x, line[1].charAt(0), y);
                 } else {
                     throw new InputException("Неверный ввод чисел!");
                 }
@@ -52,8 +51,7 @@ public class Calculator {
                 //проверка на принадлежность к заданному диапазону римских чисел (от I до IX)
                 if (nums.containsValue(line[0]) && nums.containsValue(line[2])) {
                     //создание экземпляра класса операций с римскими цифрами и выполнение операции
-                    RomanOperation romanOperation = new RomanOperation();
-                    romanOperation.exec(line[0], line[1].charAt(0), line[2]);
+                    RomanOperation.exec(line[0], line[1].charAt(0), line[2]);
                 } else {
                     throw new InputException("Неверный ввод чисел!");
                 }
