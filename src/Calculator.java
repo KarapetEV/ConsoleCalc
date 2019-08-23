@@ -9,7 +9,7 @@ public class Calculator {
 
     //Заполняем множество парами арабских и соответствующих римских цифр
     static {
-        String[] romanNums = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
+        String[] romanNums = {"0", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
         for (int i = 0; i < 10; i++) {
             nums.put(i, romanNums[i]);
         }
@@ -48,7 +48,7 @@ public class Calculator {
                 } else {
                     throw new InputException("Неверный ввод чисел!");
                 }
-            } catch (Exception e) {
+            } catch (NumberFormatException e) {
                 //проверка на принадлежность к заданному диапазону римских чисел (от I до IX)
                 if (nums.containsValue(line[0]) && nums.containsValue(line[2])) {
                     //создание экземпляра класса операций с римскими цифрами и выполнение операции
